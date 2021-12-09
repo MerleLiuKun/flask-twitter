@@ -1,6 +1,7 @@
 """
     An extension for python twitter v2.
 """
+from flask import current_app
 from pytwitter import Api
 
 DEFAULT_CONFIG = {
@@ -19,13 +20,10 @@ class TwitterAPIV2:
         for key, value in DEFAULT_CONFIG.items():
             app.config.setdefault(key, value)
 
+    @staticmethod
+    def get_api():
         config = dict()
-        for key, value in app.config.items():
+        for key, value in current_app.config.items():
             if key.startswith("TWITTER_"):
                 config[key.lower().replace("twitter_", "")] = value
-
-        return self.get_api(**config)
-
-    @staticmethod
-    def get_api(**kwargs):
-        return Api(oauth_flow=True, **kwargs)
+        return Api(oauth_flow=True, **config)
