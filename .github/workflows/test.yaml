@@ -23,7 +23,7 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
       - name: Install dependencies
-        run: python -m pip install flask python-twitter-v2
+        run: python -m pip install flask python-twitter-v2 pytest
       - name: Test with pytest
         run:
           pytest
