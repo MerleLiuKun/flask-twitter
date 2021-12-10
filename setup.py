@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name="Flask-Twitter",
-    version="0.1.0",
+    version="0.1.1",
     url="https://github.com/MerleLiuKun/flask-twitter",
     license="MIT",
     author="LiuKun",
@@ -10,7 +10,7 @@ setup(
     description="A simple twitter api v2 extension for flask",
     long_description="file: README.md",
     long_description_content_type="text/markdown",
-    py_modules=["flask_twitter"],
+    packages=["flask_twitter"],
     zip_safe=False,
     include_package_data=True,
     platforms="any",
